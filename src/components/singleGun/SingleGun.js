@@ -1,8 +1,7 @@
 import React from 'react';
 
 const SingleGun = (props) => {
-    console.log(props)
-    const {gun} = props;
+    const { gun, cartIncrase } = props;
     const { name, img, action, price, capacity } = gun;
     return (
       <div>
@@ -18,8 +17,15 @@ const SingleGun = (props) => {
             <p className="text-start">Action: {action}</p>
             <p className="text-start">Capacity: {capacity}</p>
             <div className="card-actions justify-end">
-              <div className="btn btn-sm btn-outline btn-primary">Buy Now</div>
-              <div className="btn btn-sm btn-outline btn-secondary">Show Details</div>
+              <div
+                onClick={()=>cartIncrase()}
+                className="btn btn-sm btn-outline btn-primary"
+              >
+                Add to Cart
+              </div>
+              <div className="btn btn-sm btn-outline btn-secondary">
+                Show Details
+              </div>
             </div>
           </div>
         </div>
