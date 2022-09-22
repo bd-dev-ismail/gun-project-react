@@ -20,7 +20,7 @@ const AllGun = ({ cartIncrase }) => {
       </p>
       <div className="my-5 grid gap-10 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
         {guns.map((gun) => (
-          <SingleGun gun={gun} cartIncrase={cartIncrase}></SingleGun>
+          <SingleGun gun={gun} cartIncrase={cartIncrase} key="id"></SingleGun>
         ))}
       </div>
     </div>

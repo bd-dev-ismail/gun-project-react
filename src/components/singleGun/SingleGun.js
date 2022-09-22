@@ -1,6 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
+import Modal from '../Modal/Modal';
 
 const SingleGun = (props) => {
+    const [modalData, setModalData] = useState({});
+    console.log(modalData) 
     const { gun, cartIncrase } = props;
     const { name, img, action, price, capacity } = gun;
     return (
@@ -18,17 +21,22 @@ const SingleGun = (props) => {
             <p className="text-start">Capacity: {capacity}</p>
             <div className="card-actions justify-end">
               <div
-                onClick={()=>cartIncrase()}
+                onClick={() => cartIncrase()}
                 className="btn btn-sm btn-outline btn-primary"
               >
                 Add to Cart
               </div>
-              <div className="btn btn-sm btn-outline btn-secondary">
+              <label
+                onClick={() => setModalData(gun)}
+                htmlFor="my-modal-3"
+                className="btn btn-sm btn-outline btn-secondary"
+              >
                 Show Details
-              </div>
+              </label>
             </div>
           </div>
         </div>
+        {modalData && <Modal data={modalData} setModalData={setModalData} />}
       </div>
     );
 };
